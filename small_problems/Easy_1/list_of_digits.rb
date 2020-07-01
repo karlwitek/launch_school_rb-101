@@ -33,7 +33,8 @@ end
 p dig_list(8765)
 ## convert the number(numbers) to a string.  then split into an
 ## array of numeric characters.  Want an array of numbers, not strings.
-## Enumerable #map used .  chars is 'dummy' parameter. 
+## Enumerable #map used .  chars is parameter. Necessary. Has to be 
+## chars. 
 ##  (&:to_i)  is same as
 ##  something.map { |char| char.to_i }
 
