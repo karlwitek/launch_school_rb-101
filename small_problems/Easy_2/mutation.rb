@@ -15,5 +15,7 @@ puts array2
 # the same String objects.  If you modify one of those
 # Strings, that modification will show up in both arrays.
 
-
+# my note: The string objects, themselves, have the same reference
+# pointing to them. ( the exact same objects ).  When a string is 
+# mutated, that change will be shown in the other array as well. 
 
