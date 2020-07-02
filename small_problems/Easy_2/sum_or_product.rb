@@ -110,3 +110,6 @@ elsif operation == 'p'
 else
   puts "Error, unknown operation"
 end
+
+## Note.. #inject used on a range of numbers,
+# not an array . (in this exercise)
