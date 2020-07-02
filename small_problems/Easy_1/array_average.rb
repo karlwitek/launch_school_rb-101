@@ -9,7 +9,7 @@ end
 
 puts find_average([1, 2, 3])
 puts find_average([4, 6, 8, 9, 23, 1, 4, 67])
-puts find_average([1, 5, 87, 41, 8, 8]) == 25
+puts find_average([1, 5, 87, 45, 8, 8])
 puts find_average([1, 2, 3]) == 2
 ## works!  add .to_f to allow for float number.  Happens to be
 # the Further Exploration part of this exercise
@@ -31,7 +31,7 @@ puts average([1, 2, 3]) == 2
 # example of using a symbol
 # numbers.reduce(:+)  // Used #count to count the numbers of elements
 # in numbers.  divide sum by the number of elements and return the 
-#quotient
+# quotient
 
 
 
