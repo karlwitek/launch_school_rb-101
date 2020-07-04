@@ -36,6 +36,7 @@ end
 
 puts '-----------------'
 puts palindrome_array([2, 2, 4, 2, 2])
+puts palindrome_array(['is', 'this', 'is'])
 puts palindrome_array('not one')
 puts palindrome_array('madam')
 
