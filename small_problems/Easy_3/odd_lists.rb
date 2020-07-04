@@ -43,12 +43,36 @@ def oddities(array)
   odd_elements
 end
 
-p oddities([1, 2, 3, 4, 5, 6, 7, 8])
+#p oddities([1, 2, 3, 4, 5, 6, 7, 8])
 
 # by changing index's initial value to 1 (line 38), can output
 # the 2nd, 4th, 6th element and so on..
 
+# Another solution
 
+def odds(array)
+  array.map.with_index { |elem, idx| elem if idx.even? }
+end
+
+p odds([1, 2, 3, 4, 5, 6, 7])
+# returns [1, nil, 3, nil, 5, nil, 7]
+
+# again with .compact method. (Revomes the nil values)
+
+def odd_numbers(array)
+  new_array = array.map.with_index { |e, idx| e if idx.even? }
+  new_array.compact
+end
+
+p odd_numbers([1, 2, 3, 4, 5, 6, 7, 8, 9])
+
+## Again with .select.with_index (works the best ..)
+
+def odds2(array)
+  array.select.with_index { |elem, idx| elem if idx.even? }
+end
+
+p odds2([1, 2, 3, 4, 5, 6, 7, 8, 9])
 
 
 
