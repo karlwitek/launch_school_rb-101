@@ -66,6 +66,8 @@ end
 
 p odd_numbers([1, 2, 3, 4, 5, 6, 7, 8, 9])
 
+## returns [1, 3, 5, 7, 9]
+
 ## Again with .select.with_index (works the best ..)
 
 def odds2(array)
