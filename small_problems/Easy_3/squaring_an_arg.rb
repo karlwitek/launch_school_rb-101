@@ -1,4 +1,4 @@
-# Using the method from the previous exercise, writ
+# Using the method from the previous exercise, write
 # a method that computes the square of its argument
 
 def multiply(num_one, num_two)
