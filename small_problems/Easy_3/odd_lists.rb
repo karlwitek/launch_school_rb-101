@@ -3,16 +3,16 @@
 # in the returned list should be the 1st, 3rd, etc.. (position , not
 # index )
 
-# def odd_list(array)
-#   i = 0
-#   array.map do |element|
-#     element[i]
-#     i += 2
-#   end
-# end
+def odd_list(array)
+  i = 0
+  array.map do |element|
+    element[i]
+    i += 2
+  end
+end
 
-# p odd_list([3, 4, 5, 6])
-## returned [2, 4, 6, 8, 10, 12, 14]  Not correct!!
+p odd_list([3, 4, 5, 6])
+## returned [2, 4, 6, 8]  Not correct!!
 # try again.  Returning i values. not doubling
 
 def odds(array)
