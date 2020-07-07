@@ -1,6 +1,6 @@
 # Write a method that searches for all multiples of 3 or 5 that lie
 # between 1 and some number, and then computes the sum of those
-# multiples.  May assume the number (argument is an integer > 1)
+# multiples.  May assume the number (argument) is an integer > 1.
 
 def multiples(number)
   number_array = Array(1..number)
