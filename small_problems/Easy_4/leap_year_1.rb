@@ -5,7 +5,7 @@
 # then it is not a leap year unless the year is evenly divisible by 400.
 
 def leap_year?(year)
-  if year % 100 == 0 && year % 400 == 0
+  if year % 400 == 0
     return true
   elsif year % 4 == 0 && !(year % 100 == 0)
     return true
