@@ -11,7 +11,7 @@
 
 #  NOT SOLVED.  LS below
 
-hash = { '0' => 0, '1' => 1, '2' => 2, '3' => 3, '4' => 4, '5' => 5,
+HASH = { '0' => 0, '1' => 1, '2' => 2, '3' => 3, '4' => 4, '5' => 5,
         '6' => 6, '7' => 7, '8' => 8, '9' => 9 }
 
 
@@ -19,12 +19,15 @@ hash = { '0' => 0, '1' => 1, '2' => 2, '3' => 3, '4' => 4, '5' => 5,
 # dig = string.chars.map { |char| hash[char] }
 # p dig
 
-def string_to_integer(string)
-  digits = string.chars.map { |char| hash[char] }
-  
+def string_to_i(str)
+  digits = str.chars.map { |char| HASH[char] }
+  #a = digits.join + 100
+  #puts a
+
   value = 0
   digits.each { |digit| value = 10 * value + digit }
-  value
+  value * 2
+
 end
 
-p string_to_integer('123')
+p string_to_i("123")
