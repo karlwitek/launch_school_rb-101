@@ -52,7 +52,7 @@ def run_tot(array)
   array.inject([]) do |result, element|
     total += element
     result << total
-    result
+  
   end
 end
 
@@ -62,3 +62,12 @@ p run_tot([1, 2, 3, 4, 5, 6, 7])
 
 # works also. May be a better way.
 
+def run_tot(array)
+  array.inject([]) do |result, element|
+    if result.empty? == true
+      result << element
+    else
+      result << result.last + element
+    end
+  end
+end

@@ -5,7 +5,7 @@ total = 0
 new_arr = array.inject([]) do |result, element|
   total += element
   result << total
-  result
+  #result
 end
 
 p new_arr
