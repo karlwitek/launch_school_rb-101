@@ -71,3 +71,5 @@ def run_tot(array)
     end
   end
 end
+
+# refactored code with .inject
