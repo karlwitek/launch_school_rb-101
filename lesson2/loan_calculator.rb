@@ -1,6 +1,8 @@
 # This program will ask the user for the loan amount, APR, and the
 # loan duration (in years), and output the monthly payment and the 
 # total interest of the loan.
+# Run through Rubocop
+# Check for valid inputs
 
 # prompt user for 3 inputs
 
