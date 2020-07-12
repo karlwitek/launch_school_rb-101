@@ -9,12 +9,18 @@
 # Kernel.puts(answer)    # calling methods with the module
 #  ( where the methods live )
 
+require 'yaml'
+MSGS = YAML.load_file('calculator_messages.yml')
+puts MSGS.inspect
+
 def prompt(message)
   Kernel.puts("=> #{message}")
 end
 
-def valid_number?(num)
-  num.to_i != 0
+def valid_number?(num_str) # refactor without explicit return of true
+  # num_str.to_i != 0  
+  # input = /[0-9]/.match(num_str)
+  /\p{N}/.match(num_str) || /\p{Nd}/.match(num_str)
 end
 
 def operation_to_message(op)
@@ -30,30 +36,30 @@ def operation_to_message(op)
   end
 end
 
-prompt("Welcome to Calculator! Enter your name")
+prompt(MSGS['welcome'])
 
 name = ''
 loop do
   name = Kernel.gets().chomp()
   if name.empty?
-    prompt("Please enter a valid name")
+    prompt(MSGS['valid_name'])
   else
     break
   end
 end
 
-prompt("Hi #{name}!")
+prompt(MSGS['hi'] + " #{name}!")
 
 loop do # main loop
   number1 = ''
   loop do
-    prompt("What's the first number?")
+    prompt(MSGS['first_number'])
     number1 = Kernel.gets().chomp()
 
     if valid_number?(number1)
       break
     else
-      prompt("Looks like you entered an invalid number")
+      prompt(MSGS['invalid_number'])
     end
   end
 
@@ -64,23 +70,17 @@ loop do # main loop
 
   number2 = ''
   loop do
-    prompt("What's the second number?")
+    prompt(MSGS['second_number'])
     number2 = Kernel.gets().chomp()
 
     if valid_number?(number2)
       break
     else
-      prompt("Looks like you entered an invalid number.")
+      prompt(MSGS['invalid_number'])
     end
   end
-  operator_prompt = <<-MSG
-    What operation would you like to perform?
-    1) add
-    2) subtract
-    3) multiply
-    4) divide
-  MSG
-
+  operator_prompt = MSGS['oper_prompt']
+  
   prompt(operator_prompt)
 
   operator = ''
@@ -89,11 +89,11 @@ loop do # main loop
     if %w(1 2 3 4).include?(operator)
       break
     else
-      prompt("Must choose 1, 2, 3 or 4")
+      prompt(MSGS['invalid_oper'])
     end
   end
 
-  prompt("#{operation_to_message(operator)} the two numbers")
+  prompt("#{operation_to_message(operator)} " + MSGS['oper_display'])
 
   result = case operator
            when '1'
@@ -106,13 +106,12 @@ loop do # main loop
              number1.to_f() / number2.to_f()
            end
 
-  prompt("The result is #{result}")
+  prompt(MSGS['result'] + "#{result}")
 
-  prompt("Would you like to do another calculation?
-        (Y for another calculation)")
+  prompt(MSGS['repeat_app'])
   answer = Kernel.gets().chomp()
   break unless answer.downcase().start_with?('y')
 end
 
-prompt("Thank you for using Calculator. Goodbye. ")
+prompt(MSGS['ending_message'])
 ## convert to float for division. Not integer division
