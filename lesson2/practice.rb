@@ -1,6 +1,9 @@
 #  Write a method that takes an array of integers and
 # returns a new array with every other element.
 
+require 'pry'
+
+
 def other_element(arr)
   index = 0
   arr.map do |num|
@@ -15,6 +18,7 @@ def every_other_element(array)
   b = []
   while i < array.length
     b << array[i]
+    binding.pry
     i += 2
   end
   b

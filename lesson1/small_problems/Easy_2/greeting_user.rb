@@ -6,6 +6,7 @@ puts "Please enter your name: "
 name = gets.chomp
 
 if name.split('')[-1] == "!"
+  name = name.chop!
   greeting = "hello #{name} Don't yell at me."
   puts greeting.upcase
 else
