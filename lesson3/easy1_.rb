@@ -34,4 +34,4 @@ flintstones_hash = { 'Fred' => 0, 'Wilma' => 1, 'Barney' => 2,
 
 arr = flintstones_hash.assoc('Barney')
 p arr
-# works. see docs on .assoc
+# works. see docs on  .assoc
