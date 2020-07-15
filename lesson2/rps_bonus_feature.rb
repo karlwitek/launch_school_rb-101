@@ -21,7 +21,7 @@ def prompt(message)
 end
 
 def win?(player, computer)
-  true if MOVES[player].include?(computer)
+  MOVES[player].include?(computer) 
 end
 
 def display_winner(player, computer)
