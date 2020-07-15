@@ -22,7 +22,7 @@ def prompt(message)
   puts "=> #{message}"
 end
 
-def win?(move1, move2)
+def win(move1, move2)
   if MOVES[move1].include?(move2)
     'player'
   elsif MOVES[move2].include?(move1)
@@ -83,7 +83,7 @@ loop do
     puts "You chose: #{WORDS[player_choice]}; the computer" \
          " chose #{WORDS[computer_choice]}"
 
-    case win?(player_choice, computer_choice)
+    case win(player_choice, computer_choice)
     when 'player'
       puts "You won!"
       player_num_wins += 1
