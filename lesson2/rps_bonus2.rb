@@ -32,16 +32,6 @@ def win?(move1, move2)
   end
 end
 
-# def display_winner(player, computer)
-#   if win?(player, computer)
-#     puts "You won!"
-#   elsif win?(computer, player)
-#     puts "You lose."
-#   else
-#     puts "It's a tie!"
-#   end
-# end
-
 def display_match_winner(player_wins, computer_wins, ties)
   if player_wins == 5
     puts "You won #{player_wins} to #{computer_wins}."
@@ -93,17 +83,6 @@ loop do
     puts "You chose: #{WORDS[player_choice]}; the computer" \
          " chose #{WORDS[computer_choice]}"
 
-  #   display_winner(player_choice, computer_choice)
-
-  #   if win?(player_choice, computer_choice)
-  #     player_num_wins += 1
-  #   elsif win?(computer_choice, player_choice)
-  #     computer_num_wins += 1
-  #   else
-  #     num_of_ties += 1
-  #   end
-  
-  # end
     case win?(player_choice, computer_choice)
     when 'player'
       puts "You won!"
@@ -117,7 +96,6 @@ loop do
     end
 
     break if player_num_wins == 5 || computer_num_wins == 5
-
   end
 
   display_match_winner(player_num_wins, computer_num_wins, num_of_ties)
