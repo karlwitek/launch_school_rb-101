@@ -49,3 +49,11 @@ end
 
 puts multisum(20)
 
+# Again with .inject or reduce. Output is the same.
+
+def mult(number)
+  1.upto(number).select { |n| n % 3 == 0 || n % 5 == 0 }.reduce(:+)
+end
+
+puts '================='
+puts mult(20)
