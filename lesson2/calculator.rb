@@ -11,7 +11,6 @@
 
 require 'yaml'
 MSGS = YAML.load_file('calculator_messages.yml')
-puts MSGS.inspect
 
 def prompt(message)
   Kernel.puts("=> #{message}")
