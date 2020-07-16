@@ -22,14 +22,14 @@ p run_total([1, 2, 3, 4, 5])
 # Try solving with #Enumerable#each_with_object or 
 # Enumerable#inject
 
-# w/ each_with_object
+# w/ .inject
 
 def totals(array)
-  array.each_with_object([]) do |elem, memo|
-    if memo.empty?
-      memo << elem
+  array.inject([]) do |result, elem|
+    if result.empty?
+      result << elem
     else
-      memo << memo.last + elem
+      result << result.last + elem
     end
   end
 end
@@ -38,4 +38,18 @@ end
 puts '==============='
 p totals([1, 2, 3, 4, 5])
 
+# again with .each_with_object
+
+def r_tot(array)
+  array.each_with_object([]) do |elem, result|
+    if result.empty?
+      result << elem
+    else
+      result << result.last + elem
+    end
+  end
+end
+
+puts '=============='
+p r_tot([1, 2, 3, 4, 5])
 
