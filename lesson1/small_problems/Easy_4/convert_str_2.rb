@@ -9,7 +9,7 @@ HASH = { '0' => 0, '1' => 1, '2' => 2, '3' => 3,
 
 # p string_to_integer('345')
 
-# returns "345"
+# returns "345" . Not Correct.
 
 def str_to_array_of_num(string)
   arr = string.split('')
