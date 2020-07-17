@@ -50,5 +50,29 @@ end
 puts signed_integer_to_string(6)
 puts signed_integer_to_string(-23)
 
-# 
+# <=> operator compares the left side against the right side.
+# Returns +1 if the left side is greater than the right.
+# -1 if the left side is smaller than the right, and 0
+# if the values are the same. Useful when you need to know
+# whether a number is positive, negative or zero.
+
+# Further Exploration. Refactor so integer_to_string is 
+# called once, not three times.
+
+def signed_integer_to_string2(number)
+  if number < 0
+    negative = true
+  end
+  display_string = integer_to_string(number.abs)
+  if negative
+    "#{'-'}#{display_string}"
+  else
+    display_string
+  end
+end
+
+puts '======================'
+puts signed_integer_to_string2(5)
+puts signed_integer_to_string2(-45)
+# works.  
 
