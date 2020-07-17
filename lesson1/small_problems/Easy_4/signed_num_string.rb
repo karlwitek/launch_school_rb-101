@@ -74,5 +74,5 @@ end
 puts '======================'
 puts signed_integer_to_string2(5)
 puts signed_integer_to_string2(-45)
-# works.  
+# works..
 
