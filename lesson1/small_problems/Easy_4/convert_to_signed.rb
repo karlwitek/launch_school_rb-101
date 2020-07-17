@@ -33,9 +33,14 @@ puts string_to_integer2('-543') # -543
 puts string_to_integer2('+500') # +500
 puts string_to_integer2('4') # 4
 
+# this method doesn't work in the LS solution when called
+# within method with the case statement
+# because of [1..-1] part.  In my method, the first
+# character is removed(.shift) if it is a + or _.
+
 # works.  LS -->
 
-def string_to_integer2(string)
+def string_to_integer3(string)
   digits = string.chars.map { |char| HASH[char] }
 
   value = 0
@@ -45,9 +50,9 @@ end
 
 def string_to_signed_integer(string)
   case string[0]
-  when '-' then -string_to_integer2(string[1..-1])
-  when '+' then string_to_integer2(string[1..-1])
-  else          string_to_integer2(string)
+  when '-' then -string_to_integer3(string[1..-1])
+  when '+' then string_to_integer3(string[1..-1])
+  else          string_to_integer3(string)
   end
 end
 
@@ -61,7 +66,7 @@ def string_to_signed_integer2(string)
     oper = string.slice!(0)
   end
 
-  new_string = string_to_integer2(string)
+  new_string = string_to_integer3(string)
   if oper
     "#{oper}#{new_string}"
   else
