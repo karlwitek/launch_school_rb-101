@@ -56,3 +56,21 @@ puts string_to_signed_integer('-4444')
 # Refactor method so string[1..-1] and string_to_integer2
 # is only called once each.
 
+def string_to_signed_integer2(string)
+  if string[0] == '-' || string[0] == '+'
+    oper = string.slice!(0)
+  end
+
+  new_string = string_to_integer2(string)
+  if oper
+    "#{oper}#{new_string}"
+  else
+    new_string
+  end
+end
+
+puts string_to_signed_integer2('-34')
+puts string_to_signed_integer2('+100')
+puts string_to_signed_integer2('2')
+
+
