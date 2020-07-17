@@ -7,7 +7,10 @@ DIGITS = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
 def signed_num_to_string(number)
   if number < 0
     negative = true
+  else
+    negative = false
   end
+
   str_num = ''
   loop do
     number, remainder = number.abs.divmod(10)
@@ -62,6 +65,8 @@ puts signed_integer_to_string(-23)
 def signed_integer_to_string2(number)
   if number < 0
     negative = true
+  else 
+    negative = false
   end
   display_string = integer_to_string(number.abs)
   if negative
