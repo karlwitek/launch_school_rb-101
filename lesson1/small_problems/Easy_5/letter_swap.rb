@@ -62,4 +62,8 @@ def swap3(words)
 end
 
 puts swap3('Further Exploration')
+# does not work the same. The values stored in result
+# are only the first and last charaters, not the complete
+# word.
+
 
