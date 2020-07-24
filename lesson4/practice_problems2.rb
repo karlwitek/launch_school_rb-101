@@ -23,4 +23,9 @@ ages = { "Herman" => 32, "Lily" => 30, "Grandpa" => 5843,
 
 puts ages.values.inject(:+)
 
+# ages.values returns an array.  Then use the inject method. (:+) is a 
+# variety of the inject method which says 'apply the + operator to the 
+# accumulator and object parameters of inject'.
+
+
 
