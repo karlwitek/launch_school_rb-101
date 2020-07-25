@@ -24,6 +24,8 @@ end
 
 p result
 # Better output. Spaces are not counted.
+# .scan (Ruby method) that returns an array of all items in a string
+# that match a given Regular Expression.
 
 
 
