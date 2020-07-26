@@ -28,3 +28,5 @@ end
 
 p word_sizes2("it's still a string$%^")
 
+# Deletes all non-letter characters from each word before computing the
+# size.  
