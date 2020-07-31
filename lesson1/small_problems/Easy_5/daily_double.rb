@@ -83,3 +83,23 @@ p crunch4('hello worldddd')
 
 # works ..  Probably a better solution possible
 
+def crunch5(string)
+  string.gsub(/(.)\1+/, '\1')
+end
+
+puts crunch5('all is well')
+puts crunch5('aaa abbb ddffgg')
+
+
+
+# another solution for previous way of solving
+
+def crunch(str)
+  crunching_arr = []
+  str.chars.each do |char|
+    crunching_arr << char unless char == crunching_arr.last
+  end
+  crunching_arr.join
+end
+
+puts crunch('hhheeelllllo woooorrrrlllldd')
