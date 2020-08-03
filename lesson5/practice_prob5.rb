@@ -23,4 +23,7 @@ munsters.each_value do |details|
 end
 
 puts total_male_age
-# Uses .each_value 
+# Uses .each_value -->  Since the keys of the outer hash are not referenced, we can
+# use Hash#each_value with a single block parameter.
+
+
