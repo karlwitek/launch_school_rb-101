@@ -84,7 +84,7 @@ dms3(99900)
 
 # Further Exploration works . Wrote a separate method to convert angle inputted
 # to an appropriate number for original method. If input == 360, returns 0.
-# Going to leave as is.
+# Going to leave as is..
 
 
 
