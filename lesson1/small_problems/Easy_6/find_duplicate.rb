@@ -5,12 +5,6 @@
 
 a = [1, 2, 3, 4, 5, 2]
 
-# b = a.shift
-# p a
-# puts b
-# a << b
-# p a
-
 def find_duplicate(array)
   loop do
     element = array.shift
@@ -23,6 +17,7 @@ def find_duplicate(array)
 end
 
 puts find_duplicate(a)
+# 2
 
 arr = ([18, 9, 36, 96, 31, 19, 54, 75, 42, 15,
           38, 25, 97, 92, 46, 69, 91, 59, 53, 27,
@@ -36,7 +31,6 @@ arr = ([18, 9, 36, 96, 31, 19, 54, 75, 42, 15,
           7,  34, 57, 74, 45, 11, 88, 67,  5, 58])
 
 puts find_duplicate(arr)
-#  2
 #  73
 
 
