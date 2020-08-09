@@ -74,4 +74,7 @@ end
 puts staggered_case('further exploration')
 puts staggered_case('further exploration', false)
 
+# FuRtHeR ExPlOrAtIoN
+# fUrThEr eXpLoRaTiOn
+
 # Good..
