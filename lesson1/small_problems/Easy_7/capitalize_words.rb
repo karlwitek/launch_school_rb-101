@@ -78,7 +78,8 @@ puts cap_first_letter('again with sub method')
 puts cap_first_letter('apple orange small lETTERS Capitalize')
 
 # also works.  Needed to store the return value of word.sub to be able to return 'capped_word'
-# (capitalized word).  word.sub! without storing the return value would of worked as well.
+# (capitalized word).  This is because it is not the last evaluated expression of the if statement.
+# word.sub! without storing the return value would of worked as well.
 # (changed it back to word.sub!)
 
 
