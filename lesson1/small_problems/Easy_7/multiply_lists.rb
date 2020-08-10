@@ -46,3 +46,4 @@ p multiply_lists_zip(b, c)
 # [105, 155, 205]  works.. lifted from student solutions.  My solution was missing .map.
 # returns nil without .map
 
+#  arr1.zip(arr2).map { |num1, num2| num1 * num2 } Another student solution (not checked).
