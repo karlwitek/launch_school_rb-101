@@ -56,7 +56,7 @@ puts twice(8) # 16
 # There is an edge case for single digit numbers. (in theory).  If center was equal to zero, and we
 # did not execute the ternary with .zero? as the conditional, could end up with the left_side and
 # right_side being set to string_number[0..-1] which would satisfy the condition for being a 
-# double number.  My solution handles this edge case by checking array.size.odd? .
+# double number.  My solution handles this edge case by checking array.size.odd?.
 
 
 
