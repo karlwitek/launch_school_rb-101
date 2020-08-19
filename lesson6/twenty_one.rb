@@ -1,5 +1,3 @@
-require 'pry'
-
 SUITS = [:hearts, :diamonds, :clubs, :spades]
 
 DECK = { :hearts =>   ["2", "3", "4", "5", "6", "7", "8",
