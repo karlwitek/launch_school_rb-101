@@ -34,7 +34,7 @@ def convert_to_value(hand)
   array_of_integers = []
   if hand.flatten.size > 2
     hand.each_with_index do |element, index|
-      array_of_integers << CARD_VALUE[hand[index][0]]
+      array_of_integers << CARD_VALUE[hand[index].first]
     end
   else
     array_of_integers << CARD_VALUE[hand.first]
@@ -56,9 +56,6 @@ end
 
 def check_for_aces(hand_as_integers)
   total = hand_as_integers.reduce(:+)
-  if total < 22 
-    return hand_as_integers
-  end
   while total > 21
     if hand_as_integers.include?(11)
       index_of_ace = hand_as_integers.index(11)
@@ -135,7 +132,7 @@ loop do
     end
   end
 
-puts "Do you want to play again?"
+puts "Do you want to play again? ('y' or 'n')"
 answer = gets.chomp
 break unless answer.downcase.start_with?('y')
 end
