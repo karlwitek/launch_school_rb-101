@@ -1,18 +1,18 @@
 SUITS = [:hearts, :diamonds, :clubs, :spades]
 
-DECK = { :hearts =>   ["2", "3", "4", "5", "6", "7", "8",
-                       "9", "10", "J", "Q", "K", "A"],
-         :diamonds => ["2", "3", "4", "5", "6", "7", "8",
-                       "9", "10", "J", "Q", "K", "A"],
-         :clubs =>    ["2", "3", "4", "5", "6", "7", "8",
-                       "9", "10", "J", "Q", "K", "A"],
-         :spades =>   ["2", "3", "4", "5", "6", "7", "8",
-                       "9", "10", "J", "Q", "K", "A"] }
+DECK = { hearts: ["2", "3", "4", "5", "6", "7", "8",
+                  "9", "10", "J", "Q", "K", "A"],
+         diamonds: ["2", "3", "4", "5", "6", "7", "8",
+                    "9", "10", "J", "Q", "K", "A"],
+         clubs: ["2", "3", "4", "5", "6", "7", "8",
+                 "9", "10", "J", "Q", "K", "A"],
+         spades: ["2", "3", "4", "5", "6", "7", "8",
+                  "9", "10", "J", "Q", "K", "A"] }
 
-CARD_VALUE = { '2'=> 2, '3'=> 3, '4'=> 4, '5'=> 5, '6'=> 6, '7' => 7,
+CARD_VALUE = { '2' => 2, '3' => 3, '4' => 4, '5' => 5, '6' => 6, '7' => 7,
                '8' => 8, '9' => 9, '10' => 10, 'J' => 10, 'Q' => 10,
                'K' => 10, 'A' => 11 }
-              
+
 def get_random_card(deck)
   array = []
   suit = SUITS.sample
@@ -24,16 +24,16 @@ def get_random_card(deck)
 end
 
 def display_deal(player_hand, dealer_hand)
-  puts "You have a #{player_hand[0][0]} of #{player_hand[0][1]} and a " +
+  puts "You have a #{player_hand[0][0]} of #{player_hand[0][1]} and a " \
        "#{player_hand[1][0]} of #{player_hand[1][1]}."
-  puts "The dealer is showing a #{dealer_hand[0][0]} of #{dealer_hand[0][1]} " +
+  puts "The dealer is showing a #{dealer_hand[0][0]} of #{dealer_hand[0][1]} " \
        "and one card is facedown."
 end
 
 def convert_to_value(hand)
   array_of_integers = []
   if hand.flatten.size > 2
-    hand.each_with_index do |element, index|
+    hand.each_with_index do |_element, index|
       array_of_integers << CARD_VALUE[hand[index].first]
     end
   else
@@ -47,11 +47,7 @@ def calculate_total(hand_as_integers)
 end
 
 def busted?(hand_total)
-  if hand_total > 21
-    true
-  else
-    false
-  end
+  hand_total > 21
 end
 
 def check_for_aces(hand_as_integers)
@@ -59,7 +55,7 @@ def check_for_aces(hand_as_integers)
   while total > 21
     if hand_as_integers.include?(11)
       index_of_ace = hand_as_integers.index(11)
-      hand_as_integers[index_of_ace]= 1
+      hand_as_integers[index_of_ace] = 1
       total = hand_as_integers.reduce(:+)
     else
       break
@@ -109,7 +105,7 @@ loop do
     hand_as_integers = convert_to_value(first_two_for_dealer)
     dealer_total = calculate_total(hand_as_integers)
     puts "The dealer has #{dealer_total}"
-    while dealer_total < 17 do
+    while dealer_total < 17
       next_card = get_random_card(deck)
       puts "The dealer hits a #{next_card[0]} of #{next_card[1]}"
       hand_as_integers += convert_to_value(next_card)
@@ -132,14 +128,7 @@ loop do
     end
   end
 
-puts "Do you want to play again? ('y' or 'n')"
-answer = gets.chomp
-break unless answer.downcase.start_with?('y')
+  puts "Do you want to play again? ('y' or 'n')"
+  answer = gets.chomp
+  break unless answer.downcase.start_with?('y')
 end
-
-
-
-
-
-    
-
