@@ -3,13 +3,11 @@
 # for your implementation.
 
 def rotate(array)
-  array.map do |elem|
-    if elem == array[0]
-      elem = array[-1]
-    elsif elem == array[-1]
-      elem = array[0]
-    else 
-      elem
+  array.map.with_index do |elem, index|
+    if (index + 1) < array.size
+      array[index + 1]
+    else
+      array[0]
     end
   end
 end
@@ -20,10 +18,10 @@ p arr
 p rotate(['a'])
 p rotate(['a', 'b', 'c'])
 
-# [5, 2, 3, 4, 1]
+# [2, 3, 4, 5, 1]
 # [1, 2, 3, 4, 5]
 # ["a"]
-# ["c", "b", "a"]
+# ["b", "c", "a"]
 
 # LS -->
 
@@ -31,6 +29,7 @@ def rotate_array(array)
   array[1..-1] + [array[0]]
 end
 
+puts '==================='
 p rotate_array(['a', 'b', 'c', 'd'])
 
 # Our solution simply slices everything out of the array except the first element, then appends
