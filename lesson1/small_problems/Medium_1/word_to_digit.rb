@@ -178,20 +178,22 @@ def word_to_digit5(words)
     end
   end
   a = new_str.match(/\d{10}/).to_s
-  if a.size == 10
-    new_str.sub(a, "(#{a[0, 3]})#{a[3, 3]}-#{a[6, 4]}").strip
+  if a != ''
+    new_str.sub(a, "(#{a[0, 3]}) #{a[3, 3]}-#{a[6, 4]}").strip
   else
     new_str.strip
   end
 
 end
 
-puts word_to_digit5('5034235512')
+puts word_to_digit5('4235512')
+puts word_to_digit5('5034456789')
 puts word_to_digit5('Call me at ONE. I have one two orders. My number is
                      five zero three four two THREE FIVE five ONE Two.')
 
 # Formats the phone number if there is one:
 
-# (503)423-5512
+# 4235512
+# (503) 445-6789
 # Call me at 1. I have 12 orders. My number is (503)423-5512.
 
