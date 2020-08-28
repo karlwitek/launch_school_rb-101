@@ -25,6 +25,12 @@ puts triangle(3, 4, 5) == :scalene
 puts triangle(0, 3, 3) == :invalid
 puts triangle(3, 1, 1) == :invalid
 
+# true
+# true
+# true
+# true
+# true
+
 # LS -->
 
 def triangle(side1, side2, side3)
