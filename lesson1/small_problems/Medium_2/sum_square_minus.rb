@@ -41,4 +41,3 @@ puts sum_square_difference(3) # 22
 
 # Loop through all of the integers between 1 and n, and compute the sum and sum of the squares as
 # we go.  At the end, we subtract the sum of the squares from the square of the sum.
-
