@@ -14,10 +14,13 @@ longest_sentence_length = 0
 longest_sentence = ''
 longest_word_length = 0
 longest_word = ''
+array_of_longest_sentences = ['placeholder']
 
 sentences.each do |sentence|
+  if array_of_longest_sentences[-1] == longest_sentence
+    array_of_longest_sentences << sentence
+  end
   words = sentence.split
-  num_of_words = words.size
   words.each do |word|
     if word.length > longest_word_length
       longest_word_length = word.length
@@ -25,9 +28,11 @@ sentences.each do |sentence|
     end
   end
 
-  if num_of_words > longest_sentence_length
-    longest_sentence_length = num_of_words
+  if words.length > longest_sentence_length
+    longest_sentence_length = words.length
     longest_sentence = sentence
+    array_of_longest_sentences << longest_sentence
+    array_of_longest_sentences = array_of_longest_sentences[-2..-1]
   end
 end
 
@@ -37,24 +42,24 @@ longest_paragraph_length = 0
 longest_paragraph = ''
 
 paragraphs.each do |paragraph|
-  sentence_array = paragraph.split(/\.|\?|!/)
-  num_of_sentences = sentence_array.length
-  if num_of_sentences > longest_paragraph_length
-    longest_paragraph_length = num_of_sentences
+  words_array = paragraph.split
+  if words_array.length > longest_paragraph_length
+    longest_paragraph_length = words_array.length
     longest_paragraph = paragraph
   end
 end
 
-p sentences[0]
+
 puts longest_paragraph
 puts "===================="
-puts "#{longest_paragraph_length} sentences in the longest paragraph."
+puts "#{longest_paragraph_length} words in the longest paragraph."
 
-puts longest_sentence
+puts longest_sentence + array_of_longest_sentences.pop
 puts "#{longest_sentence_length} words in the longest sentence."
 
 puts longest_word
 puts "#{longest_word_length} letters in the longest word."
+p array_of_longest_sentences
 
 # LS -->
 
