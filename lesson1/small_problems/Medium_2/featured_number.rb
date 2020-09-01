@@ -1,63 +1,50 @@
 # A featured number is an odd number that is a multiple of 7, and whose digits occur exactly
 # once each. Write a method that takes a single integer as an argument
 
-
-def featured(number)
-  featured_number = number + 1
-  
-  loop do
-    if featured_number % 7 == 0 && featured_number.odd? && occur_once?(featured_number)
-      break
-    else
-      featured_number += 1
-    end
-  end
-  featured_number
-end
-
 def occur_once?(featured_number)
   num_string = featured_number.to_s
   num_array = num_string.split('')
   num_array.none? { |num| num_string.count(num) > 1 }
 end
 
-# puts featured(12) == 21
-# puts featured(20) == 21
-# puts featured(21) == 35
-# puts featured(997) == 1029
-# puts featured(1029) == 1043
-# puts featured(999_999) == 1_023_547
-# puts featured(999_999_987) == 1_023_456_987
-
-# all true (next modify method to display error message if featured number does not exist)
-
-require 'timeout'
-
-
 def featured(number)
-  featured_number = number + 1
-  
-  begin
-    Timeout.timeout(10) do
-      loop do
-        if featured_number % 7 == 0 && featured_number.odd? && occur_once?(featured_number)
-          break
-        else
-          featured_number += 1
-        end
-      end
-    end
-  rescue
-    return "The featured number does not exist."
+  loop do
+    number += 1
+    break if number % 7 == 0 && number.odd?
   end
-  featured_number
+
+  featured_number = number
+
+  loop do
+    if occur_once?(featured_number)
+      return featured_number
+    else
+      featured_number += 14
+    end
+    break if featured_number > 9_876_543_210
+  end
+  "The featured number does not exist for the number entered."
 end
 
-puts featured(12)
-puts featured(9_999_999_999) 
 
-# 21
-# The featured number does not exist.
+puts featured(12) == 21
+puts featured(20) == 21
+puts featured(21) == 35
+puts featured(997) == 1029
+puts featured(1029) == 1043
+puts featured(999_999) == 1_023_547
+puts featured(999_999_987) == 1_023_456_987
+puts featured(9_900_000_000)
+
+# true
+# true
+# true
+# true
+# true
+# true
+# true
+# The featured number does not exist for the number entered.
+
 
 # LS -->
 
@@ -74,6 +61,8 @@ def featured(number)
 
   'There is no possible number that fulfills those requirements.'
 end
+
+puts featured(78) # 91
 
 # A good way to start is to first make sure we meet the conditions of a 'featured number'.
 # In this case, odd, multiple of 7 and no duplicate digits.
