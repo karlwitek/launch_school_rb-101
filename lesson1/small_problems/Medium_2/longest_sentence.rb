@@ -36,7 +36,7 @@ sentences.each do |sentence|
   end
 end
 
-paragraphs = file_data.split(/\n\n+/)
+paragraphs = file_data.split(/\n{2,}/)
 
 longest_paragraph_length = 0
 longest_paragraph = ''
@@ -59,7 +59,6 @@ puts "#{longest_sentence_length} words in the longest sentence."
 
 puts longest_word
 puts "#{longest_word_length} letters in the longest word."
-p array_of_longest_sentences
 
 # LS -->
 
