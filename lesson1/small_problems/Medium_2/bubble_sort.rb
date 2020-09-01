@@ -16,17 +16,18 @@ def bubble_sort!(array)
     end
     break if swapped == false
   end
+  nil
 end
 
 a = [5,3,2,7,1]
 words = ['car', 'dog', 'apple', 'zebra', 'house']
-p bubble_sort!([4,3])
+
 bubble_sort!(a)
 bubble_sort!(words)
 p a
 p words
 
-# nil
+
 # [1, 2, 3, 5, 7]
 # ["apple", "car", "dog", "house", "zebra"]
 
