@@ -4,6 +4,7 @@
 # File.open('C:\Users/karlw\RB101\downloads\gutenberg.file', "wb") do |file|
 #   file.write open('http://www.gutenberg.org/cache/epub/84/pg84.txt').read
 # end
+# Typo in line 4. Downloaded anyways.
 
 
 file_data = File.read('C:\Users\karlw\RB101\downloads\gutenberg.file')
@@ -12,18 +13,19 @@ sentences = file_data.split(/(\.)|(\?)|(!)/)
 
 longest_sentence_length = 0
 longest_sentence = ''
-longest_word_length = 0
 longest_word = ''
-array_of_longest_sentences = ['placeholder']
+need_punctuation = false
+punctuation = ''
+longest_paragraph_length = 0
+longest_paragraph = ''
 
 sentences.each do |sentence|
-  if array_of_longest_sentences[-1] == longest_sentence
-    array_of_longest_sentences << sentence
+  if need_punctuation
+    punctuation = sentence
   end
   words = sentence.split
   words.each do |word|
-    if word.length > longest_word_length
-      longest_word_length = word.length
+    if word.length > longest_word.length
       longest_word = word
     end
   end
@@ -31,15 +33,13 @@ sentences.each do |sentence|
   if words.length > longest_sentence_length
     longest_sentence_length = words.length
     longest_sentence = sentence
-    array_of_longest_sentences << longest_sentence
-    array_of_longest_sentences = array_of_longest_sentences[-2..-1]
+    need_punctuation = true
+  else
+    need_punctuation = false
   end
 end
 
 paragraphs = file_data.split(/\n{2,}/)
-
-longest_paragraph_length = 0
-longest_paragraph = ''
 
 paragraphs.each do |paragraph|
   words_array = paragraph.split
@@ -54,11 +54,11 @@ puts longest_paragraph
 puts "===================="
 puts "#{longest_paragraph_length} words in the longest paragraph."
 
-puts longest_sentence + array_of_longest_sentences.pop
+puts longest_sentence + punctuation
 puts "#{longest_sentence_length} words in the longest sentence."
 
 puts longest_word
-puts "#{longest_word_length} letters in the longest word."
+puts "#{longest_word.length} letters in the longest word."
 
 # LS -->
 
