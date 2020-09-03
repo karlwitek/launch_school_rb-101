@@ -103,7 +103,7 @@ end
 # returns NaN (not a number ?) or 'infinity' if leave document1 in as an argument when
 # calling the method.
 #  ‘Not A Number’ means an invalid IEEE floating point number. (web)
-# 'infinity' is returned instead of division by zero error when dividing by a float
+# 'infinity' is returned instead of division by zero error when dividing by a float (0.0)
 # (rubyguides.com)
 # Nan is returned instead of division by zero error when 0/0.0
 
