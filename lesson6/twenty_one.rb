@@ -103,6 +103,7 @@ loop do
     down_card = first_two_for_dealer[1]
     puts "The dealer flips over the #{down_card[0]} of #{down_card[1]}"
     hand_as_integers = convert_to_value(first_two_for_dealer)
+    hand_as_integers = check_for_aces(hand_as_integers)
     dealer_total = calculate_total(hand_as_integers)
     puts "The dealer has #{dealer_total}"
     while dealer_total < 17
