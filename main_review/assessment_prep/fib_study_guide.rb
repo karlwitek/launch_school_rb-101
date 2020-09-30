@@ -59,7 +59,7 @@ p fib(4) # 3
 p fib(5) # 5
 
 
-#  select the element out of the array if its index is a fibonacci number:
+# select the element out of the array if its index is a fibonacci number:
 # this fibonacci method returns an array of fibonacci numbers:
 
 def fibonacci(nth, size) # the nth number of the sequence # modified to use with index_is_fib..
