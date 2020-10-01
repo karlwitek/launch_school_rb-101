@@ -81,7 +81,7 @@ def next_biggest_number(number)
   index = -1
   current_number = str_num[index].to_i
   next_number = str_num[index - 1].to_i
-
+  index -= 1
   until next_number < current_number
     current_number = str_num[index].to_i
     next_number = str_num[index - 1].to_i
@@ -90,7 +90,7 @@ def next_biggest_number(number)
   return -1 if next_number == 0 #(nil.to_i => 0)
 
   array_str_nums = str_num.chars
-  untouched_arr = array_str_nums.slice!(0...array_str_nums.index(next_number.to_s))
+  untouched_arr = array_str_nums.slice!(0...index)
   array_str_nums.sort!
   idx = array_str_nums.index(next_number.to_s)
   new_first_num_str = array_str_nums.slice!(idx + 1)
@@ -105,4 +105,5 @@ puts next_biggest_number(12349753) # 12353479
 puts next_biggest_number(12346975) # 12347569
 puts next_biggest_number(531) # -1
 puts next_biggest_number(111) # -1
-
+puts next_biggest_number(12) #21
+puts next_biggest_number(112) #121
