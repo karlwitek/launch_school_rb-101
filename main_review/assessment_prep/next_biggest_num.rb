@@ -92,8 +92,9 @@ def next_biggest_number(number)
   array_str_nums = str_num.chars
   untouched_arr = array_str_nums.slice!(0...index)
   array_str_nums.sort!
-  idx = array_str_nums.index(next_number.to_s)
-  new_first_num_str = array_str_nums.slice!(idx + 1)
+  replacement_number = array_str_nums.select { |num| num.to_i > next_number }[0]
+  idx = array_str_nums.index(replacement_number)
+  new_first_num_str = array_str_nums.slice!(idx)
   new_array = [new_first_num_str] + array_str_nums
   final_array = untouched_arr + new_array
   final_array.join.to_i
@@ -107,3 +108,5 @@ puts next_biggest_number(531) # -1
 puts next_biggest_number(111) # -1
 puts next_biggest_number(12) #21
 puts next_biggest_number(112) #121
+puts next_biggest_number(66975) # 67569
+puts next_biggest_number(55876554) # 56455578
