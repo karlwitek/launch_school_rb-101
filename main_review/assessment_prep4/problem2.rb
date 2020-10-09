@@ -9,12 +9,10 @@
 # initialize a hash keys=letters, values = number of occurrences
 # iterate over array of characters
 # assign key/value pairs to hash while using #count called on string
-# find key/value(s) with highest value
-# call #each on hash with block that finds the key with the highest value (use > not >= to find first)
-# return the key of the highest value 
+# find value(s) with highest value with hash.values.max (assign to variable)
+# call #each on hash with block that finds the key with the highest value
+# explicitly return the key of the highest value 
 
-# (hash will return the first key if two values are the same) if using method on hash may not use
-# this step
 
 def find_letter_of_most_occurences(string)
   hash = Hash.new(0)
